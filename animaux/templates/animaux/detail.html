@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>detail</title>
+    <style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333333;
+        width: 500px;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 16px;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      background-color: #111111;
+    }
+        dd{
+            color: blue;
+            margin-bottom: 10px;
+        }
+        dl{
+            margin-bottom: 40px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>{{ animaux.animal_name }}</h1>
+    {% if error_message %}<p style="color: darkred"><strong>{{ error_message }}</strong></p>{% endif %}
+    {% if success %}<p style="color: green"><strong>{{ success }}</strong></p>{% endif %}
+    <dl>
+        <dd>race : {{ animaux.race }}</dd>
+        <dd>type : {{ animaux.type }}</dd>
+        <dd>etat : {{ animaux.etat }}</dd>
+        <dd>lieu : {{ animaux.lieu }}</dd>
+    </dl>
+    <ul>
+    <li><a href="{% url 'animaux:nourrir' animaux.id %}">nourrir</a></li>
+    <li><a href="{% url 'animaux:divertir' animaux.id %}">divertir</a></li>
+    <li><a href="{% url 'animaux:coucher' animaux.id %}">coucher</a></li>
+    <li><a href="{% url 'animaux:reveiller' animaux.id %}">reveiller</a></li>
+     <li><a href="{% url 'animaux:liste' %}" style="color: white;background-color:black">liste Animaux</a></li>
+    </ul>
+
+</body>
+</html>

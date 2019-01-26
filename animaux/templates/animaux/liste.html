@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>liste-animaux</title>
+</head>
+<body>
+{% if animaux %}
+<ol>
+    <h2>LISTE DES ANIMAUX</h2>
+    {% for animal in animaux %}
+        <li style="margin-bottom: 10px"><a href="{% url 'animaux:detail' animal.id %}">{{ animal.animal_name }}</a> </li>
+    {% endfor %}
+</ol>
+{% else %}
+    <p>No polls are available</p>
+
+{% endif %}
+</body>
+</html>
